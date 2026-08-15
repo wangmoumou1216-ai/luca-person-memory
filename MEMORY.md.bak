@@ -1,0 +1,27 @@
+# Memory Index
+
+- [No Confirmation Loops](feedback_no_confirmation_loops.md) — 执行层直接干不来回确认；但改框架机制或用户说"先给方案/想清楚再做"时先提案等拍板，被打断后零编辑(含撤销)；**批量预授权("把所有事情干完/最大权限/不要再问我/一直做")覆盖框架改动 propose-first 门→自主跑到底，真拿不准走红队对抗2轮自裁决不回头问(6-21)**
+- [Stability Hardening 2026-05](project_stability-hardening.md) — 2026-05 稳健性加固完成，quality gate PASS=40
+- [Evidence-Grounded Debate](feedback_evidence_grounded_debate.md) — 对抗辩论/红队评审时，每条论点都要工具验证，不做空辩
+- [Skill Routing Verify](feedback_skill_routing_verify.md) — 调 skill 前先读其 SKILL.md 核对职责+扫用户参数(有档位/AskUserQuestion 必须派发前问用户，禁止 headless 静默选档，2026-06-12复发)；复杂任务必须真正产出 Plan Agent 计划不能只读文档就跳单 skill
+- [Idea Skill Scope](feedback_idea_skill_scope.md) — /idea 只做"已有语料忠实结构化"，不是新想法的设计入口；设计主路径从 /brainstorm 起，不要自动塞 /idea 当 Phase 1
+- [Research Default (Complex+Novel)](feedback_research_default_complex_novel.md) — 复杂且新颖任务研究为默认动作，禁止静默砍研究节点，跳过须显式声明并经用户确认
+- [进项目先摸结构](feedback_project-entry-orient.md) — 切到项目后先 ls 项目根+读 README/HANDOFF 建立认知；docs/等三软链是skill产出口，对手写代码项目本来就空，软链空≠项目空，别据此下"空项目"结论(2026-06-04复发)
+- [别自动改全局 Claude 配置](feedback_no-auto-edit-global-claude-config.md) — 改 ~/.claude/settings.json 这类影响所有 session 的配置要先给片段让用户自己粘，不自动写
+- [改完先跑测试再说done](feedback_run-tests-before-claiming-done.md) — 宣称修好/已验证前必须先跑项目现有测试套件(bats/swift/pytest)，别只靠临时合成验证
+- [验证你的验证](feedback_verify-your-verification.md) — 信"绿/一致"前先确认脚本真在考验目标(fixture存在+区分性用例)；这session两次空跑假绿差点上报
+- [系统排查非打地鼠](feedback_systematic-not-whackamole.md) — 有状态系统建模成Writer→State→Reader→Clearer管线，枚举4类失败闭合矩阵逐格验+未验标GAP+固化进bats，别反应式点修
+- [先红队自己的分析再上报](feedback_redteam-own-analysis-before-shipping.md) — 框架自审我系统性over-claim"要现在修的bug"；上报前先红队自己结论(分缺口真/解法错/时机错)，2026三次红队各翻4/9、6/11、5/7；**候选建议同样会over-claim**——"可以做/低风险"出口前必过四问门(问题定义成立?如何解?是否有利?影响既有逻辑?)，"是否是问题"先于"怎么修"(6-12复发)
+- [语义意图别写死关键词](feedback_semantic-not-hardcoded-keywords.md) — 用户要自然语言/语义触发的(如单点交接)不要塞关键词表进 hook；语义识别放 LLM 层(CLAUDE.md/skill)，route-guard 只做产品名粗网
+- [想要的UX先验证可行](feedback_interactive-handoff-not-headless.md) — OD 的"注入UI session让它问你"实测 API 做不到(UI只渲染自发起session)→最终 headless 一次性+判断后置；设计 skill 前先验证目标工具技术可行，别围绕做不到的交互模型写完整套(本次先v2.0交互优先后推翻v3.0 headless白费一轮)
+- [Claude 真实源码取证](reference_claude-source-access.md) — 调研 Claude 自身(Cowork/chat 编排UI)真实最新逻辑用源码非截图：web chunk 走 assets-proxy CDN 可 curl 免登录;桌面 app.asar 解包;桌面 Electron fuse 锁死无法 CDP
+- [交互说明稿=场景故事板](feedback_interaction-spec-scenario-storyboards.md) — "梳理交互逻辑/做交互说明稿"要交场景故事板(同一会话逐帧生长串状态)+真实产品视觉(扒CSS token)+每节点两段式标注(对应真实代码)+对抗式回源验证;别交孤立状态字典/自估视觉/未验证逻辑(本轮因此返工4轮)
+- [可证可逆就别纠结直接做](feedback_execute-when-verifiable-and-reversible.md) — 改动若"被要求+编译/测试可证+可逆(备份/git)",验证门即风险控制,纠结超一轮就过三问(要求?可证?可逆?)三yes立即做;与红队/验证类记忆互补:谨慎随"可验证×可逆"反向缩放(2026-06-05拆macos.rs巨石waffle 3-4轮纯烧cycles)
+- [1:1 复刻UI方法](feedback_1to1-ui-replication-method.md) — 逐像素复刻真实UI:真实SVG图标走createNodeFromSvg(别手画)、字号/间距/颜色取CSS字面值(别eyeball)、对真实截图/视频逐元素核;.mov录屏用Swift/AVFoundation抽帧;OD复刻Anthropic绑claude DS并覆盖FxUI叠加
+- [Logic not screenshot captions](feedback_logic-not-screenshot-captions.md) — 要交互逻辑给 code-grounded 状态机+真实录屏验证,不是截图旁写字
+- [Figma 调用批量化](feedback_figma-batch-calls.md) — use_figma 一个section一次脚本+开头预载全部字体+缓存节点ID不重查+section级截图验证；先读figma-use失败模式清单避免试错重试；跨call每次先setCurrentPage，getNodeByIdAsync返null≈id变了(被re-parent/模板吸收)先按name全树搜别当删除误报，布局验证后加大批量收尾单次截图(6-17复盘)
+- [提取门槛：只存重大经验](feedback_extraction-bar-major-only.md) — 默认不存；四信号才提取(明确纠正或指示/二次复发/真实返工或不可逆险情/高成本事实)；对话中途仅①即写，②③④走candidate冷静期；真值源=仓内extraction-bar.md
+- [复现要照搬真实env别近似](feedback_reproduce-real-env-not-approximation.md) — 定位根因复现故障进程时逐字照搬其真实 env/args(ps -Eww 抓全)，别手工剥近似；本session手剥env漏传USER→造出假credit错根因→据此改6文件再全勘误
+- [源产物按打开的文件定位](feedback_source-from-open-file-not-name.md) — OD/Figma多文件工具取"刚生成/正打开的产物"用active context锁定，别从目标地址名反推源项目(本session从Figma文件名"速记汇报版本"反推错OD项目，建了7节点才被纠正)；同项目多候选html先报具体文件名让用户确认
+- [Subagent 工具调用要可见](feedback_subagent-tool-visibility.md) — luca 要 subagent/workflow 工具调用可见；harness 隔离塞不进主流→默认前台内联执行(逐条可见)，只在并行/规模值当才 delegate 且先声明+/workflows，透明度优先于 ultracode 并行
+- [枚举诉求逐项等比覆盖](feedback_cover-enumerated-asks-proportionally.md) — 用户显式列条的多部分诉求每条都是验收项；别因我对某部分(严格门禁/对抗)更感兴趣写厚、把同样明说的另一部分(获取源甄别逻辑)写薄；出计划前先把原话拆成枚举清单逐项标厚度，薄项补齐再交(本session重Gate轻Source被两次打断)
