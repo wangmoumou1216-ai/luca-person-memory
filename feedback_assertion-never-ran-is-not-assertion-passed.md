@@ -1,5 +1,5 @@
 ---
-name: candidate-assertion-never-ran-is-not-assertion-passed
+name: feedback_assertion-never-ran-is-not-assertion-passed
 description: "断言\"没跑到\"会被计成绿——异步测试块里 await 一个 reject 会抛过 ok() 让套件绿着退出"
 metadata: 
   node_type: memory

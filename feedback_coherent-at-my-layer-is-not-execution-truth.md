@@ -1,5 +1,5 @@
 ---
-name: candidate_feedback_coherent-at-my-layer-is-not-execution-truth
+name: feedback_coherent-at-my-layer-is-not-execution-truth
 description: "一份东西在我这一层自洽 ≠ 它真会那样发生——2026-08-14 记忆治理计划四轮红队，同一根因换了四张脸（观测当因果/散文当执行面/验收无区分度/跨条目无账），每次的解药都是\"去看那个动作真正发生的地方\""
 metadata: 
   node_type: memory

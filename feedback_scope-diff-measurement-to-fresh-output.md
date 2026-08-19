@@ -1,5 +1,5 @@
 ---
-name: scope-diff-measurement-to-fresh-output
+name: feedback_scope-diff-measurement-to-fresh-output
 description: "在累积型载体（scrollback/日志/append-only 状态）上做差分测量前必须把量程限定到本次新产出——历史残留会让『变了』成为假信号，据此下的结论会反向"
 metadata:
   node_type: memory
