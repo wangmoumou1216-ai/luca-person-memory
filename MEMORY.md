@@ -52,7 +52,7 @@
 - [大改动:红队循环+实现后深审](feedback_redteam-loop-then-deep-review-big-changes.md) — 大/有风险改动：执行前红队↔plan 握手迭代到零存活 BLOCKER，实现后开多个独立 reviewer 各攻一维 + 变异测试；凡写实质代码要交付，深审是默认动作不等开口
 - [审计必须含运行时分区](feedback_audit-needs-runtime-partition.md) — 纯静态视角(读码/对抗/新眼)集体漏运行时崩溃；干轮判定须含真跑视角(7-28审计R5实证,claude5-unhobble R4再证)
 - [守卫拦你时先问它在防什么](feedback_guard-intent-not-guard-check.md) — 别把命令改到「能过检查」而风险原样存在(=拿代理指标当真目标，还会把绕行配方写成后人照抄的教程)；真是价值-规则冲突就停下来交用户裁
-- [设计安全闸的三个盲区](feedback_permission-gate-design-blind-spots.md) — ①策略落在被约束方的写权限内=门自己发钥匙 ②判据跑在被测对象的执行环境里 ③测试放在够不到门的层；这三条我自审抓不到，靠红队(7-30/8-15 各一次)
+- [设计安全闸的三个盲区](feedback_permission-gate-design-blind-spots.md) — ①策略落在被约束方的写权限内=门自己发钥匙 ②判据跑在被测对象的执行环境里 ③测试放在够不到门的层；**行为版**：裁决"约束我自己的规则"时我是被约束方也是执行者→必须外部红队+自检"这条若生效会不会禁止我刚做的动作"(8-19 实证：我否掉的两条恰是唯一会禁止该裁决的两条)
 - [自洽≠会发生](feedback_coherent-at-my-layer-is-not-execution-truth.md) — 我这层逻辑闭合不证明世界会照这么跑；断言机制坏/写下规则/写下验收/多阶段各自OK 四处都栽过——去看那个动作真正发生的地方(48h内复发3次)
 - [断言没跑到会算绿](feedback_assertion-never-ran-is-not-assertion-passed.md) — 条件里的断言、对照块缺席的顺序断言、fixture 不含查询词的排除断言，全是恒真；写完必须变异一次看它转不转红(8-15 一天犯两次)
 - [累积载体上做差分先限量程](feedback_scope-diff-measurement-to-fresh-output.md) — scrollback/日志/git 历史都是累积的，`git diff A..B` 测的是两端差异不是「本次新增」；先把量程限定到本次产出，否则「变了」是假信号、结论会反向
