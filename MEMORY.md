@@ -51,7 +51,7 @@
 - [Subagent 一律串行](feedback_serial-subagents-default.md) — 「不要并行，串行跑」(8-08 明确指示 + **8-12 第二次强调**——当时在飞只有 1 个，是主动加固规则不是纠正当下行为，别自行开例外；不分模型，**取代**7-18 那版「opus 批可并行」的例外)；逐个派发等回来再派下一个，说"下次"就是从下次起、在飞的别砍掉重来；并行在限额下是全损模式(撞限=整批在飞 agent 同时阵亡)，且在飞期间编排者对同一工作区的验证不可信；串行更慢→派发前先砍掉可有可无的那一路别凑数；配额紧张仍按判断杠杆只留最高杠杆批给 fable
 - [大改动:红队循环+实现后深审](feedback_redteam-loop-then-deep-review-big-changes.md) — 大/有风险改动：执行前红队↔plan 握手迭代到零存活 BLOCKER，实现后开多个独立 reviewer 各攻一维 + 变异测试；凡写实质代码要交付，深审是默认动作不等开口
 - [审计必须含运行时分区](feedback_audit-needs-runtime-partition.md) — 纯静态视角(读码/对抗/新眼)集体漏运行时崩溃；干轮判定须含真跑视角(7-28审计R5实证,claude5-unhobble R4再证)
-- [抽模块必须核生产接线](feedback_extracted-module-must-verify-wiring.md) — 模块+单测全绿≠生效,测的可能是死代码；核实调用方真 import/调用
+- [抽模块必须核生产接线](feedback_extracted-module-must-verify-wiring.md) — 模块+单测全绿≠生效；done 的标准不是 push，是「跑它的那个 ref 会执行到我的代码吗」——开分支/worktree 时就把合回去写进待办，隔离会静默变搁置(8-15 自己犯)
 - [反引号多行文本禁 unquoted heredoc](feedback_no-unquoted-heredoc-with-backticks.md) — shell 命令替换会把命令输出注入进内容污染目标文件；用 quoted 'EOF'
 - [还原粒度≤测试改动](feedback_restore-granularity-matches-test-change.md) — mutation/hook 测试收尾禁 git checkout 整文件(冲掉同文件未提交工作,7-29 实证)；cp 备份精确还原
 - [别用框架约束模型能力](feedback_dont-constrain-model-capability.md) — 加规则前过解绑测试三问(加信息还是替模型决定/变强后挡不挡路/有没有退场条件)；零对象泛词的硬映射一律撤(误伤面永远大于收益,ux_audit「评审/挑毛病/有什么问题」把任何评审意图送进截图skill)，撤后用提示钉接住不留裸奔；分流类写**资产索引非决策树**+自建条款+native_precedence退场；纪律类只收用户真指示过的、标「下限非上限」；停止条件与下限清单分开写；净效果看"撤掉的硬约束是否多于新增"(8-03 luca 中途叫停指示"模型能力强了你约束他就适得其反")
