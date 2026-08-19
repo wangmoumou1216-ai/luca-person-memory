@@ -8,7 +8,7 @@ metadata:
   modified: 2026-08-14T07:36:53.701Z
 ---
 
-**候选（信号②③，待裁决）** — [[feedback_verify-your-verification]] 的新变体：
+**已采纳（2026-08-19，signal②③）** — [[feedback_verify-your-verification]] 的新变体：
 已有条目覆盖「查源码字符串而非行为」「shim 掉边界」「变异形态太弱」，本条是**第四种**：
 **断言压根没执行**，而没执行在计数上等于没失败。
 

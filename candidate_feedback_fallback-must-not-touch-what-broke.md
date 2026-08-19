@@ -35,4 +35,4 @@ forEach，后面的行照样被吞，我加的防线一行作用没起。修法�
 - 验证方式固定：**用"会抛的属性"而不是"字段缺失"做变异**——后者太弱，前者才逼得出二次穿透。
 
 同族：[[feedback_verify-your-verification]]（独立性是假设层面的）、
-[[candidate_feedback_assertion-never-ran-is-not-assertion-passed]]（同 session 第三次踩"异常绕过断言"）。
+[[feedback_assertion-never-ran-is-not-assertion-passed]]（同 session 第三次踩"异常绕过断言"）。

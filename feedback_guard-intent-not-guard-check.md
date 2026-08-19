@@ -1,5 +1,5 @@
 ---
-name: guard-intent-not-guard-check
+name: feedback_guard-intent-not-guard-check
 description: "守卫/检查拦住你时，先问它在防什么再动手——把命令改到\"能通过检查\"而风险原样存在，等于把代理指标当成了真目标，还会把绕行配方写成后人照抄的教程"
 metadata: 
   node_type: memory

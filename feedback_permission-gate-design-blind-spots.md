@@ -1,5 +1,5 @@
 ---
-name: candidate-feedback-permission-gate-design-blind-spots
+name: feedback_permission-gate-design-blind-spots
 description: 设计权限门/安全闸时的三个系统性盲区（策略可被约束方自改/判据跑在被测对象的执行环境/测试放在触达不到门的层）——2026-07-30 红队一轮抓出三个 BLOCKER，全是我自审不出来的
 metadata: 
   node_type: memory
